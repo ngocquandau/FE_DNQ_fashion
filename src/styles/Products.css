@@ -1,0 +1,21 @@
+/* src/styles/Products.css */
+
+/* Thanh tìm kiếm */
+input[type="text"] {
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+}
+
+/* Biểu tượng giỏ hàng */
+.cart-icon {
+    position: relative;
+}
+
+/* Số lượng trên giỏ hàng */
+.cart-count {
+    font-size: 0.75rem;
+    font-weight: bold;
+}

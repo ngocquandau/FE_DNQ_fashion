@@ -1,0 +1,10 @@
+/* src/styles/Cart.css */
+
+/* Hiệu ứng cho sản phẩm trong giỏ */
+.cart-item {
+    transition: background-color 0.3s ease;
+}
+
+.cart-item:hover {
+    background-color: #f9fafb; /* Màu xám nhạt khi hover */
+}

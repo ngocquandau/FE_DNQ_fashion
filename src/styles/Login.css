@@ -1,0 +1,17 @@
+/* src/styles/Login.css */
+
+/* Input focus effect */
+input[type="text"],
+input[type="password"] {
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+}
+
+/* Radio button styling */
+input[type="radio"] {
+    accent-color: #3b82f6; /* Màu xanh của Tailwind blue-500 */
+}
