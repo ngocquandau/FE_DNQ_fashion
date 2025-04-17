@@ -29,42 +29,14 @@ function App() {
             <CartProvider>
                 <Router>
                     <Routes>
-                    <Route path="/" element={<Home />} />
+                        <Route path="/" element={<Home />} />
                         <Route path="/products" element={<Products />} />
                         <Route path="/products/:id" element={<ProductDetail />} />
                         <Route path="/login" element={<Login />} />
-                        <Route
-                            path="/cart"
-                            element={
-                                <ProtectedRoute>
-                                    <Cart />
-                                </ProtectedRoute>
-                            }
-                        />
-                        <Route
-                            path="/checkout"
-                            element={
-                                <ProtectedRoute>
-                                    <Checkout />
-                                </ProtectedRoute>
-                            }
-                        />
-                        <Route
-                            path="/orders"
-                            element={
-                                <ProtectedRoute>
-                                    <Orders />
-                                </ProtectedRoute>
-                            }
-                        />
-                        <Route
-                            path="/admin"
-                            element={
-                                <AdminRoute>
-                                    <Admin />
-                                </AdminRoute>
-                            }
-                        />
+                        <Route path="/cart" element={<Cart />} />
+                        <Route path="/checkout" element={<Checkout />} />
+                        <Route path="/orders" element={<Orders />} />
+                        <Route path="/admin" element={<Admin />} /> 
                     </Routes>
                 </Router>
             </CartProvider>
