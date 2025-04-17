@@ -1,8 +1,7 @@
 // src/App.jsx
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider, useAuth } from './context/AuthContext';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
-import Header from './components/Header'; // Import Header
 import Home from './pages/Home';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
@@ -10,7 +9,7 @@ import Login from './pages/Login';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import Orders from './pages/Orders';
-import Admin from './pages/Admin';
+import Admin from './pages/Admin'; 
 
 // Component bảo vệ route
 const ProtectedRoute = ({ children }) => {
@@ -29,9 +28,8 @@ function App() {
         <AuthProvider>
             <CartProvider>
                 <Router>
-                    <Header /> 
                     <Routes>
-                        <Route path="/" element={<Home />} />
+                    <Route path="/" element={<Home />} />
                         <Route path="/products" element={<Products />} />
                         <Route path="/products/:id" element={<ProductDetail />} />
                         <Route path="/login" element={<Login />} />
