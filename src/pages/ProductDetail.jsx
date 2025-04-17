@@ -1,8 +1,9 @@
 // src/pages/ProductDetail.jsx
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom'; // Thêm useNavigate
 import axios from 'axios';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext'; // Thêm useAuth
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -12,13 +13,15 @@ const ProductDetail = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const { addToCart } = useCart();
+    const { user } = useAuth(); // Lấy user từ AuthContext
+    const navigate = useNavigate(); // Để chuyển hướng
 
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                console.log(`Fetching product with id: ${id}`); // Log id được gửi
+                console.log(`Fetching product with id: ${id}`);
                 const response = await axios.get(`https://be-dnq-fashion.vercel.app/api/products/${id}`);
-                console.log('Product response:', response.data); // Log dữ liệu trả về
+                console.log('Product response:', response.data);
                 setProduct(response.data);
                 setLoading(false);
             } catch (err) {
@@ -32,6 +35,13 @@ const ProductDetail = () => {
     }, [id]);
 
     const handleAddToCart = () => {
+        // Kiểm tra trạng thái đăng nhập
+        if (!user) {
+            alert('Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng!');
+            navigate('/login'); // Chuyển hướng đến trang đăng nhập
+            return;
+        }
+
         if (product) {
             addToCart(product);
             alert(`${product.name} đã được thêm vào giỏ hàng!`);
