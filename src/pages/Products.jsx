@@ -17,7 +17,7 @@ const Products = () => {
     const { getCartCount } = useCart();
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/products')
+        axios.get('https://be-dnq-fashion.vercel.app/api/products')
             .then(res => {
                 setProducts(res.data);
                 setFilteredProducts(res.data);

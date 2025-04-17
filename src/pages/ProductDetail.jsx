@@ -17,7 +17,7 @@ const ProductDetail = () => {
         const fetchProduct = async () => {
             try {
                 console.log(`Fetching product with id: ${id}`); // Log id được gửi
-                const response = await axios.get(`http://localhost:5000/api/products/${id}`);
+                const response = await axios.get(`https://be-dnq-fashion.vercel.app/api/products/${id}`);
                 console.log('Product response:', response.data); // Log dữ liệu trả về
                 setProduct(response.data);
                 setLoading(false);

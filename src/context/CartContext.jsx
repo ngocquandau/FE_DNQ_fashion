@@ -13,7 +13,7 @@ export const CartProvider = ({ children }) => {
         if (!user) return;
 
         try {
-            const response = await axios.get(`http://localhost:5000/api/cart/${user.id}`);
+            const response = await axios.get(`https://be-dnq-fashion.vercel.app/api/cart/${user.id}`);
             setCart(response.data);
         } catch (err) {
             console.error('Error fetching cart:', err);
@@ -31,7 +31,7 @@ export const CartProvider = ({ children }) => {
         }
 
         try {
-            const response = await axios.post(`http://localhost:5000/api/cart/`, {
+            const response = await axios.post(`https://be-dnq-fashion.vercel.app/api/cart/`, {
                 user_id: user.id,
                 product_id: product.id,
                 quantity: 1,
@@ -56,7 +56,7 @@ export const CartProvider = ({ children }) => {
 
         try {
             const response = await axios.put(
-                `http://localhost:5000/api/cart/${user.id}/${productId}`,
+                `https://be-dnq-fashion.vercel.app/api/cart/${user.id}/${productId}`,
                 { quantity: newQuantity }
             );
             console.log('Update quantity response:', response.data);
@@ -78,7 +78,7 @@ export const CartProvider = ({ children }) => {
 
         try {
             const response = await axios.delete(
-                `http://localhost:5000/api/cart/${user.id}/${productId}`
+                `https://be-dnq-fashion.vercel.app/api/cart/${user.id}/${productId}`
             );
             console.log('Remove from cart response:', response.data);
             setCart(cart.filter((item) => item.product_id !== productId));

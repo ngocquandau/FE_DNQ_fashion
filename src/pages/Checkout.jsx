@@ -28,7 +28,7 @@ const Checkout = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:5000/api/orders', {
+            const response = await axios.post('https://be-dnq-fashion.vercel.app/api/orders', {
                 user_id: user.id,
                 receiver_name: receiverName,
                 address,

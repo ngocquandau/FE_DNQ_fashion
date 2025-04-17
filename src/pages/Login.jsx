@@ -25,7 +25,7 @@ const Login = () => {
             // Đăng nhập
             console.log('Login data:', { username, password, role });
             try {
-                const response = await axios.post('http://localhost:5000/api/users/login', {
+                const response = await axios.post('https://be-dnq-fashion.vercel.app/api/users/login', {
                     username,
                     password,
                     role,
@@ -42,7 +42,7 @@ const Login = () => {
             // Đăng ký
             console.log('Register data:', { username, email, password });
             try {
-                const response = await axios.post('http://localhost:5000/api/users/register', {
+                const response = await axios.post('https://be-dnq-fashion.vercel.app/api/users/register', {
                     username,
                     email,
                     password,

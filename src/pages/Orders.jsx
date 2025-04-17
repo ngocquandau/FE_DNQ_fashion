@@ -16,7 +16,7 @@ const Orders = () => {
         if (!user) return;
 
         try {
-            const response = await axios.get(`http://localhost:5000/api/orders/${user.id}`);
+            const response = await axios.get(`https://be-dnq-fashion.vercel.app/api/orders/${user.id}`);
             setOrders(response.data);
             setLoading(false);
         } catch (err) {
@@ -32,7 +32,7 @@ const Orders = () => {
 
     const handleReceived = async (orderId) => {
         try {
-            await axios.put(`http://localhost:5000/api/orders/${orderId}/status`, {
+            await axios.put(`https://be-dnq-fashion.vercel.app/api/orders/${orderId}/status`, {
                 status: 'Đã nhận hàng',
             });
             setOrders(

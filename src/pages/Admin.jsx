@@ -27,7 +27,7 @@ const Admin = () => {
 
         try {
             console.log('Fetching orders with user_id:', user.id); // Log để kiểm tra
-            const response = await axios.get(`http://localhost:5000/api/orders?user_id=${user.id}`);
+            const response = await axios.get(`https://be-dnq-fashion.vercel.app/api/orders?user_id=${user.id}`);
             console.log('Orders response:', response.data); // Log để kiểm tra dữ liệu trả về
             setOrders(response.data);
             setLoading(false);
@@ -41,7 +41,7 @@ const Admin = () => {
     const fetchProducts = async () => {
         try {
             console.log('Fetching products'); // Log để kiểm tra
-            const response = await axios.get('http://localhost:5000/api/products');
+            const response = await axios.get('https://be-dnq-fashion.vercel.app/api/products');
             console.log('Products response:', response.data); // Log để kiểm tra dữ liệu trả về
             setProducts(response.data);
             setLoading(false);
@@ -54,7 +54,7 @@ const Admin = () => {
 
     const handleUpdateStatus = async (orderId) => {
         try {
-            await axios.put(`http://localhost:5000/api/orders/${orderId}/status`, {
+            await axios.put(`https://be-dnq-fashion.vercel.app/api/orders/${orderId}/status`, {
                 status: 'Đã nhận hàng',
             });
             setOrders(
@@ -71,7 +71,7 @@ const Admin = () => {
     const handleAddProduct = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/products', {
+            const response = await axios.post('https://be-dnq-fashion.vercel.app/api/products', {
                 ...newProduct,
                 user_id: user.id,
             });
@@ -86,7 +86,7 @@ const Admin = () => {
     const handleEditProduct = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:5000/api/products/${editProduct.id}`, {
+            await axios.put(`https://be-dnq-fashion.vercel.app/api/products/${editProduct.id}`, {
                 ...editProduct,
                 user_id: user.id,
             });
@@ -104,7 +104,7 @@ const Admin = () => {
 
     const handleDeleteProduct = async (productId) => {
         try {
-            await axios.delete(`http://localhost:5000/api/products/${productId}`, {
+            await axios.delete(`https://be-dnq-fashion.vercel.app/api/products/${productId}`, {
                 data: { user_id: user.id },
             });
             setProducts(products.filter((product) => product.id !== productId));
